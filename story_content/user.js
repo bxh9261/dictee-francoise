@@ -2,40 +2,40 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6I0aw76uiL0":
+      case "5qeu1NOg7qi":
         Script1();
         break;
-      case "673a3vne9Cu":
+      case "6oINbauhtaL":
         Script2();
         break;
-      case "6Yhp5U1jMOR":
+      case "5xmV4bZGbqa":
         Script3();
         break;
-      case "5Wyv6KugfCB":
+      case "60rIwAf1mqT":
         Script4();
         break;
-      case "6eR9eaL3bUn":
+      case "5phHvBEEKug":
         Script5();
         break;
-      case "6TaubxzIDu5":
+      case "6OswmaL3Lda":
         Script6();
         break;
-      case "5wDoNQXh2J6":
+      case "5pv11H2veaL":
         Script7();
         break;
-      case "67hZDqCNwMw":
+      case "5jMqHzNYqRL":
         Script8();
         break;
-      case "6LzBksqltxL":
+      case "5ybGvmk6eTE":
         Script9();
         break;
-      case "6GWn6gXzF8L":
+      case "6L6OYJnh28E":
         Script10();
         break;
-      case "6bHqCmlWVK3":
+      case "6RC9i6wWDhs":
         Script11();
         break;
-      case "5uDjFUre38e":
+      case "5sNfe5IMDzF":
         Script12();
         break;
   }
@@ -51,61 +51,53 @@ var getVar = player.GetVar;
 window.Script1 = function()
 {
   function submitGoogleForm() {
-  // The form URL for submission (keep '/formResponse' at the end)
-  var formURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScdcbTlB_a37L9GAvdne6NhGugbLWgJv_LZnApj40A-Y22eUw/formResponse';
+  // Ensure the Storyline player object is available
+  var player = GetPlayer();
 
-  // Create the FormData object to hold the values that will be sent
-  var formData = new FormData();
-
-	console.log('Player object:', player);
-	if (!player) {
-	  console.error('Player object is not available.');
-	  return;
-	}
-
-  try {
-    // Retrieve values from Storyline variables, with fallbacks to prevent null errors
-    var NameEntryDicteeFrancoise = player.GetVar('NameEntryDicteeFrancoise') || '';
-    var EmailEntryDicteeFrancoise = player.GetVar('EmailEntryDicteeFrancoise') || '';
-    var DicteeDicteeFrancoise = player.GetVar('DicteeDicteeFrancoise') || '';
-
-    // Log values to verify they are correctly retrieved
-    console.log('Name:', NameEntryDicteeFrancoise);
-    console.log('Email:', EmailEntryDicteeFrancoise);
-    console.log('Dictee:', DicteeDicteeFrancoise);
-
-    // Append the values to the form data
-    formData.append('entry.1291506743', NameEntryDicteeFrancoise); // 'Nom' field
-    formData.append('entry.683010111', EmailEntryDicteeFrancoise); // 'Courriel' field
-    formData.append('entry.1810203126', DicteeDicteeFrancoise); // 'Dictée' field
-
-    // Submit the form using fetch API
-    fetch(formURL, {
-      method: 'POST',
-      mode: 'no-cors', // Prevent CORS issues
-      body: formData
-    })
-    .then(response => {
-      // Check if response status is OK (though in no-cors mode, it won't provide full details)
-      if (response.ok) {
-        console.log('Form submitted successfully!');
-      } else {
-        console.warn('Form submission may have encountered an issue.');
-      }
-    })
-    .catch(error => {
-      console.error('Error submitting the form: ', error);
-    });
-
-  } catch (error) {
-    // Catch and log any unexpected errors
-    console.error('Error processing form data: ', error);
+  if (!player) {
+    console.error('Storyline player not available!');
+    return;
   }
+
+  // Retrieve values from Storyline variables with fallbacks
+  var NameEntryDicteeJulien = player.GetVar('NameEntryDicteeJulien') || '';
+  var EmailEntryDicteeJulien = player.GetVar('EmailEntryDicteeJulien') || '';
+  var DicteeDicteeJulien = player.GetVar('DicteeDicteeJulien') || '';
+
+  console.log('Name:', NameEntryDicteeJulien);
+  console.log('Email:', EmailEntryDicteeJulien);
+  console.log('Dictee:', DicteeDicteeJulien);
+
+  // If variables are empty, stop and log an error
+  if (!NameEntryDicteeJulien && !EmailEntryDicteeJulien && !DicteeDicteeJulien) {
+    console.error('Variables are empty. Please ensure they are set correctly in Storyline.');
+    return;
+  }
+
+  // Submit the form using the Google Apps Script Web App URL
+  fetch('https://script.google.com/macros/s/AKfycbwjSGjdnt58dqi8yF-Cv0xpF7Uv8OEaUsxa_i0U_esFsLEX2nzn0T7zAT-_eti9Y4eD/exec', {
+    method: 'POST',
+    mode: 'no-cors', // Prevent CORS issues
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      'entry.1291506743': NameEntryDicteeJulien, // Name field
+      'entry.683010111': EmailEntryDicteeJulien, // Email field
+      'entry.1810203126': DicteeDicteeJulien     // Dictee field
+    })
+  })
+  .then(response => {
+    console.log('Form submitted successfully!');
+  })
+  .catch(error => {
+    console.error('Error submitting the form:', error);
+  });
 }
 
-// Trigger this function when needed within Storyline, such as after clicking a button
-// Delay execution to ensure variables are ready
+// Add a timeout to ensure the player and variables are ready
 setTimeout(submitGoogleForm, 2000);
+
 
 
 }
