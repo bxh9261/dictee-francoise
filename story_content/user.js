@@ -2,40 +2,40 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5knkfNSIchH":
+      case "6FllLKjaAdi":
         Script1();
         break;
-      case "5yuzGezUwpM":
+      case "6iyfunP8fD1":
         Script2();
         break;
-      case "5q3N8qcde3g":
+      case "5bZaqvR4wdS":
         Script3();
         break;
-      case "6PpGCQrB73u":
+      case "6Uxpcmy9v3j":
         Script4();
         break;
-      case "5zqEtMVCmPA":
+      case "5X4pLgVyFK4":
         Script5();
         break;
-      case "6Y924bP5KDs":
+      case "6ZlJMYyh3i8":
         Script6();
         break;
-      case "5X4pEm0z3hA":
+      case "6jPMiqQ771J":
         Script7();
         break;
-      case "6hz2v14KGHz":
+      case "6jlT3HaCV6f":
         Script8();
         break;
-      case "5pPyYt4Uwnc":
+      case "5jW3z6RNTzM":
         Script9();
         break;
-      case "5jXSadPCtSb":
+      case "5oVV2yju4G0":
         Script10();
         break;
-      case "6Qrs4rVvV4c":
+      case "5iJA6R64TRC":
         Script11();
         break;
-      case "5VAGNcrTKaH":
+      case "5mLaDvd85Sk":
         Script12();
         break;
   }
@@ -104,7 +104,8 @@ window.Script1 = function()
 }
 
 // Trigger this function when needed within Storyline, such as after clicking a button
-submitGoogleForm();
+// Delay execution to ensure variables are ready
+setTimeout(submitGoogleForm, 2000);
 
 
 }
