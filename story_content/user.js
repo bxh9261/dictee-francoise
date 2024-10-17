@@ -2,40 +2,40 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6FllLKjaAdi":
+      case "6I0aw76uiL0":
         Script1();
         break;
-      case "6iyfunP8fD1":
+      case "673a3vne9Cu":
         Script2();
         break;
-      case "5bZaqvR4wdS":
+      case "6Yhp5U1jMOR":
         Script3();
         break;
-      case "6Uxpcmy9v3j":
+      case "5Wyv6KugfCB":
         Script4();
         break;
-      case "5X4pLgVyFK4":
+      case "6eR9eaL3bUn":
         Script5();
         break;
-      case "6ZlJMYyh3i8":
+      case "6TaubxzIDu5":
         Script6();
         break;
-      case "6jPMiqQ771J":
+      case "5wDoNQXh2J6":
         Script7();
         break;
-      case "6jlT3HaCV6f":
+      case "67hZDqCNwMw":
         Script8();
         break;
-      case "5jW3z6RNTzM":
+      case "6LzBksqltxL":
         Script9();
         break;
-      case "5oVV2yju4G0":
+      case "6GWn6gXzF8L":
         Script10();
         break;
-      case "5iJA6R64TRC":
+      case "6bHqCmlWVK3":
         Script11();
         break;
-      case "5mLaDvd85Sk":
+      case "5uDjFUre38e":
         Script12();
         break;
   }
@@ -65,9 +65,9 @@ window.Script1 = function()
 
   try {
     // Retrieve values from Storyline variables, with fallbacks to prevent null errors
-    var NameEntryDicteeJulien = player.GetVar('NameEntryDicteeFrancoise') || '';
-    var EmailEntryDicteeJulien = player.GetVar('EmailEntryDicteeFrancoise') || '';
-    var DicteeDicteeJulien = player.GetVar('DicteeDicteeFrancoise') || '';
+    var NameEntryDicteeFrancoise = player.GetVar('NameEntryDicteeFrancoise') || '';
+    var EmailEntryDicteeFrancoise = player.GetVar('EmailEntryDicteeFrancoise') || '';
+    var DicteeDicteeFrancoise = player.GetVar('DicteeDicteeFrancoise') || '';
 
     // Log values to verify they are correctly retrieved
     console.log('Name:', NameEntryDicteeFrancoise);
