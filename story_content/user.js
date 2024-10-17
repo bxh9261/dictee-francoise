@@ -2,40 +2,40 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5qeu1NOg7qi":
+      case "5hwU7deF9m8":
         Script1();
         break;
-      case "6oINbauhtaL":
+      case "6KKhlzWBKxS":
         Script2();
         break;
-      case "5xmV4bZGbqa":
+      case "6HoIp9FgZD5":
         Script3();
         break;
-      case "60rIwAf1mqT":
+      case "5mRjQK7bEGQ":
         Script4();
         break;
-      case "5phHvBEEKug":
+      case "6Eg4dSJCeo2":
         Script5();
         break;
-      case "6OswmaL3Lda":
+      case "5fnN00zH3Yh":
         Script6();
         break;
-      case "5pv11H2veaL":
+      case "6prUt0tql0z":
         Script7();
         break;
-      case "5jMqHzNYqRL":
+      case "5tpFpax4Hes":
         Script8();
         break;
-      case "5ybGvmk6eTE":
+      case "6ce6PEkNb81":
         Script9();
         break;
-      case "6L6OYJnh28E":
+      case "5eelRUyjiMh":
         Script10();
         break;
-      case "6RC9i6wWDhs":
+      case "6Fw9dcsV0bo":
         Script11();
         break;
-      case "5sNfe5IMDzF":
+      case "6mtMfqBjHGs":
         Script12();
         break;
   }
@@ -60,16 +60,16 @@ window.Script1 = function()
   }
 
   // Retrieve values from Storyline variables with fallbacks
-  var NameEntryDicteeJulien = player.GetVar('NameEntryDicteeJulien') || '';
-  var EmailEntryDicteeJulien = player.GetVar('EmailEntryDicteeJulien') || '';
-  var DicteeDicteeJulien = player.GetVar('DicteeDicteeJulien') || '';
+  var NameEntryDicteeFrancoise = player.GetVar('NameEntryDicteeFrancoise') || '';
+  var EmailEntryDicteeFrancoise = player.GetVar('EmailEntryDicteeFrancoise') || '';
+  var DicteeDicteeFrancoise = player.GetVar('DicteeDicteeFrancoise') || '';
 
-  console.log('Name:', NameEntryDicteeJulien);
-  console.log('Email:', EmailEntryDicteeJulien);
-  console.log('Dictee:', DicteeDicteeJulien);
+  console.log('Name:', NameEntryDicteeFrancoise);
+  console.log('Email:', EmailEntryDicteeFrancoise);
+  console.log('Dictee:', DicteeDicteeFrancoise);
 
   // If variables are empty, stop and log an error
-  if (!NameEntryDicteeJulien && !EmailEntryDicteeJulien && !DicteeDicteeJulien) {
+  if (!NameEntryDicteeFrancoise && !EmailEntryDicteeFrancoise && !DicteeDicteeFrancoise) {
     console.error('Variables are empty. Please ensure they are set correctly in Storyline.');
     return;
   }
@@ -82,9 +82,9 @@ window.Script1 = function()
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
-      'entry.1291506743': NameEntryDicteeJulien, // Name field
-      'entry.683010111': EmailEntryDicteeJulien, // Email field
-      'entry.1810203126': DicteeDicteeJulien     // Dictee field
+      'entry.1291506743': NameEntryDicteeFrancoise, // Name field
+      'entry.683010111': EmailEntryDicteeFrancoise, // Email field
+      'entry.1810203126': DicteeDicteeFrancoise     // Dictee field
     })
   })
   .then(response => {
@@ -97,7 +97,6 @@ window.Script1 = function()
 
 // Add a timeout to ensure the player and variables are ready
 setTimeout(submitGoogleForm, 2000);
-
 
 
 }
