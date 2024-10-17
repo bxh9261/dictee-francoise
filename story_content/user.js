@@ -2,40 +2,40 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6HjdoX4hjnM":
+      case "5knkfNSIchH":
         Script1();
         break;
-      case "5XKF7wpLT43":
+      case "5yuzGezUwpM":
         Script2();
         break;
-      case "6oRtlknwFMm":
+      case "5q3N8qcde3g":
         Script3();
         break;
-      case "695OYckH3LZ":
+      case "6PpGCQrB73u":
         Script4();
         break;
-      case "6jUXrJ6uKb9":
+      case "5zqEtMVCmPA":
         Script5();
         break;
-      case "6p4UpjGhd7v":
+      case "6Y924bP5KDs":
         Script6();
         break;
-      case "65RSVdHduzH":
+      case "5X4pEm0z3hA":
         Script7();
         break;
-      case "6V6DCLpS23V":
+      case "6hz2v14KGHz":
         Script8();
         break;
-      case "6kA5CV08Kiw":
+      case "5pPyYt4Uwnc":
         Script9();
         break;
-      case "6OgW1N44TWb":
+      case "5jXSadPCtSb":
         Script10();
         break;
-      case "6om28CrgCXj":
+      case "6Qrs4rVvV4c":
         Script11();
         break;
-      case "5c3jZpXMSIi":
+      case "5VAGNcrTKaH":
         Script12();
         break;
   }
@@ -57,21 +57,27 @@ window.Script1 = function()
   // Create the FormData object to hold the values that will be sent
   var formData = new FormData();
 
+	console.log('Player object:', player);
+	if (!player) {
+	  console.error('Player object is not available.');
+	  return;
+	}
+
   try {
     // Retrieve values from Storyline variables, with fallbacks to prevent null errors
-    var NameEntryDicteeJulien = player.GetVar('NameEntryDicteeJulien') || '';
-    var EmailEntryDicteeJulien = player.GetVar('EmailEntryDicteeJulien') || '';
-    var DicteeDicteeJulien = player.GetVar('DicteeDicteeJulien') || '';
+    var NameEntryDicteeJulien = player.GetVar('NameEntryDicteeFrancoise') || '';
+    var EmailEntryDicteeJulien = player.GetVar('EmailEntryDicteeFrancoise') || '';
+    var DicteeDicteeJulien = player.GetVar('DicteeDicteeFrancoise') || '';
 
     // Log values to verify they are correctly retrieved
-    console.log('Name:', NameEntryDicteeJulien);
-    console.log('Email:', EmailEntryDicteeJulien);
-    console.log('Dictee:', DicteeDicteeJulien);
+    console.log('Name:', NameEntryDicteeFrancoise);
+    console.log('Email:', EmailEntryDicteeFrancoise);
+    console.log('Dictee:', DicteeDicteeFrancoise);
 
     // Append the values to the form data
-    formData.append('entry.1291506743', NameEntryDicteeJulien); // 'Nom' field
-    formData.append('entry.683010111', EmailEntryDicteeJulien); // 'Courriel' field
-    formData.append('entry.1810203126', DicteeDicteeJulien); // 'Dictée' field
+    formData.append('entry.1291506743', NameEntryDicteeFrancoise); // 'Nom' field
+    formData.append('entry.683010111', EmailEntryDicteeFrancoise); // 'Courriel' field
+    formData.append('entry.1810203126', DicteeDicteeFrancoise); // 'Dictée' field
 
     // Submit the form using fetch API
     fetch(formURL, {
